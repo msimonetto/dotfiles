@@ -1,0 +1,136 @@
+* {
+  font:   "Input Mono Narrow Regular 9";
+
+  bg0     : #12141dcc;
+  bg1     : #10121288;
+  bg2     : #24283b88;
+  bg3     : #41486888;
+  fg0     : #c0caf5;
+  fg1     : #a9b1d6;
+  fg2     : #737aa2;
+  red     : #f7768e;
+  green   : #9ece6a;
+  yellow  : #e0af68;
+  blue    : #7aa2f7;
+  magenta : #bd93f9;
+  cyan    : #4abaaf;
+
+  accent: @magenta;
+  urgent: @yellow;
+
+  background-color : transparent;
+  text-color       : @fg0;
+
+  margin  : 0;
+  padding : 0;
+  spacing : 0;
+}
+
+configuration {
+	modi:                       "drun";
+    show-icons:                 true;
+    display-drun:               "";
+    display-run:                "";
+    display-filebrowser:        "";
+    display-window:             "";
+	drun-display-format:        "{name} [<span weight='light' size='small'><i>({generic})</i></span>]";
+	window-format:              "{w} · {c} · {t}";
+}
+
+element-icon, element-text, scrollbar {
+  cursor: pointer;
+}
+
+window {
+  location : center;
+  width    : 1800px;
+  x-offset : 0px;
+  y-offset : 0px;
+  transparency: "real";
+
+  background-color: @bg0;
+  border: 4px;
+  border-color: @magenta;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+inputbar {
+  spacing  : 8px;
+  padding  : 5px 15px 25px 20px;
+  margin: 0px -10px;
+  children : [ prompt, entry ];
+}
+
+prompt {
+    enabled: true;
+    expand: false;
+    background-color:            inherit;
+    text-color:                  inherit;
+    padding: 0px 15px 0px 0px;
+}
+
+icon-search, entry, element-icon, element-text {
+  vertical-align: 0;
+}
+
+icon-search {
+  expand   : false;
+  filename : "search-symbolic";
+  size     : 0px;
+}
+
+textbox {
+  padding          : 4px 8px;
+  background-color : @magenta;
+}
+
+listview {
+  padding      : 5px 0px;
+  lines        : 20;
+  columns      : 3;
+  scrollbar    : false;
+  fixed-height : false;
+  dynamic      : true;
+}
+
+element {
+  padding : 8px 16px;
+  spacing : 8px;
+}
+
+element normal urgent {
+  text-color: @urgent;
+}
+
+element normal active {
+  text-color: @accent;
+}
+
+element alternate active {
+  text-color: @accent;
+}
+
+element selected {
+  text-color: #24283b;
+  background-color: @magenta;
+  border-radius: 8px;
+}
+
+element selected urgent {
+  background-color: @magenta;
+}
+
+element-icon {
+  size: 1.2em;
+}
+
+element-text {
+  text-color: inherit;
+}
+
+scrollbar {
+  handle-width : 0px;
+  handle-color : @magenta;
+  padding      : 0px;
+}
