@@ -1,0 +1,151 @@
+{
+    "reload_style_on_change": true,
+    "layer": "top",
+    "position": "top",
+    "height": 30,
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "network",
+        "clock",
+        "custom/power"
+    ],
+    "modules-center": [],
+    "modules-left": [
+        "custom/menu",
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "format": "{icon}",
+        "format-icons": {
+            "1": "α",
+            "2": "β",
+            "3": "γ",
+            "4": "δ",
+            "5": "ε",
+            "6": "ζ",
+            "7": "η",
+            "8": "θ",
+            "9": "ι",
+            "10": "κ",
+            "default": ""
+        }
+    },
+    "hyprland/window": {
+        "format": " {title}",
+        "max-length": 40,
+        "separate-outputs": false,
+        "rewrite": {
+            "(.*) ": " ",
+            "(.*)Mozilla Firefox": " Firefox",
+            "(.*) ~(.*)": "󰆍 Kitty",
+            "(.*)kitty@ArchLinux": "󰆍 Kitty",
+            "(.*) - Nvim": " Neovim"
+        },
+        "tooltip": false
+    },
+    "tray": {
+        "icon-size": 13,
+        "spacing": 10
+    },
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": [
+            "",
+            "",
+            ""
+        ],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+    "battery": {
+        "states": {
+            "good": 95,
+            "warning": 30,
+            "critical": 10
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰂄 {capacity}%",
+        "format-icons": [
+            "󰁺",
+            "󰁼",
+            "󰁾",
+            "󰂀",
+            "󰂂",
+            "󰁹"
+        ],
+        "on-click": "kitty -e --config ~/.config/kitty/kitty-hyp.conf btop"
+    },
+    "clock": {
+        "format": " {:%a %Y-%m-%d ·  %I:%M:%S %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+        "interval": 1
+    },
+    "network": {
+        "format-wifi": "{icon} {essid}",
+        "format-ethernet": "{icon} {ifname}",
+        "format-linked": "{icon} linked",
+        "format-disconnected": "{icon} none",
+        "tooltip-format-wifi": "󰒢 {signalStrength}% |  {bandwidthDownBits} |  {bandwidthUpBits}",
+        "format-icons": {
+            "wifi": [
+                "󰤯", // no signal
+                "󰤟", // low
+                "󰤢", // medium
+                "󰤥", // high
+                "󰤨" // excellent
+            ],
+            "ethernet": "󰈀",
+            "disconnected": "󰤭"
+        },
+        "on-click": "kitty -e --config ~/.config/kitty/kitty-hyp.conf impala",
+        "interval": 5
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": " muted",
+        "scroll-step": 5,
+        "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+        "on-click-right": "kitty -e --config ~/.config/kitty/kitty-hyp.conf wiremix",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "custom/power": {
+        "format": "",
+        "on-click": "~/.local/share/rofi/scripts/powermenu-hyp.sh"
+    },
+    "custom/menu": {
+        "format": "󰣇",
+        "on-click": "rofi -show-icons -show drun -config ~/.config/rofi/config-hyp.rasi"
+    },
+    "custom/wl-gammarelay-temperature": {
+        "format": " {}",
+        "exec": "wl-gammarelay-rs watch {t}",
+        "on-scroll-up": "~/.config/hypr/scripts/brightness.sh temperature-up 100",
+        "on-scroll-down": "~/.config/hypr/scripts/brightness.sh temperature-down 100"
+    },
+    "custom/wl-gammarelay-brightness": {
+        "format": " {}",
+        "exec": "wl-gammarelay-rs watch {bp}",
+        "on-scroll-up": "~/.config/hypr/scripts/brightness.sh brightness-up 0.05",
+        "on-scroll-down": "~/.config/hypr/scripts/brightness.sh brightness-down 0.05"
+    }
+}

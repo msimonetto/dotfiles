@@ -1,5 +1,5 @@
 * {
-  font:   "Input Mono Narrow Regular 20";
+  font:   "Input Mono Narrow Regular 12", "Symbols Nerd Font Mono 12";
 
   bg0     : #12141dcc;
   bg1     : #10121288;
@@ -32,20 +32,20 @@ element-icon, element-text, scrollbar {
 
 window {
   location : center;
-  width    : 700px;
+  width    : 500px;
   x-offset : 0px;
   y-offset : 0px;
 
   background-color: @bg0;
   border: 4px;
   border-color: @magenta;
-  border-radius: 20px;
-  padding: 25px;
+  border-radius: 12px;
+  padding: 8px;
   transparency: "real";
 }
 
 icon-search, entry, element-icon, element-text {
-  horizontal-align: 0.24;
+  horizontal-align: 0.18;
 }
 
 textbox {
@@ -55,8 +55,9 @@ textbox {
 
 element {
     padding: 25px 0px;
+    padding-bottom: 100px;
     orientation: horizontal;
-    spacing: 8px;
+    spacing: 12px;
 }
 
 element normal urgent {
@@ -75,7 +76,7 @@ element alternate active {
 element selected {
   text-color: #24283b;
   background-color: @magenta;
-  border-radius: 18px;
+  border-radius: 8px;
 }
 
 element selected urgent {
@@ -84,6 +85,7 @@ element selected urgent {
 
 element-text {
   text-color: inherit;
+  vertical-align: 0.45;
 }
 
 inputbar {
